@@ -33,28 +33,33 @@ func main() {
 	sort.Ints(inp)
 
 	target := 2020
-	l := 0
-	r := len(inp) - 1
-	var num1, num2 int
+	var num1, num2, num3 int
 
-	for l < r {
-		if inp[l]+inp[r] == target {
-			num1 = inp[l]
-			num2 = inp[r]
-			break
-		}
+	for i := 0; i < len(inp)-2; i++ {
+		l := i + 1
+		r := len(inp) - 1
 
-		if inp[l]+inp[r] < target {
-			l += 1
-			continue
-		}
+		for l < r {
+			su := inp[i] + inp[l] + inp[r]
+			if su == target {
+				num1 = inp[i]
+				num2 = inp[l]
+				num3 = inp[r]
+				break
+			}
 
-		if inp[l]+inp[r] > target {
-			r -= 1
-			continue
+			if su < target {
+				l += 1
+				continue
+			}
+
+			if su > target {
+				r -= 1
+				continue
+			}
 		}
 	}
 
-	fmt.Println(num1, num2)
-	fmt.Println(num1 * num2)
+	fmt.Println(num1, num2, num3)
+	fmt.Println(num1 * num2 * num3)
 }
