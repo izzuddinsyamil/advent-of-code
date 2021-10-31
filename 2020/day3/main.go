@@ -32,7 +32,6 @@ func main() {
 		{7, 1},
 		{1, 2},
 	}
-	_ = slopes
 
 	res := 1
 	for _, slope := range slopes {
@@ -44,7 +43,6 @@ func main() {
 				expandRow(r, grid)
 			}
 
-			// fmt.Println(r, c, len(grid[r]), grid[r])
 			if grid[r][c] == "#" {
 				treeCount += 1
 			}
